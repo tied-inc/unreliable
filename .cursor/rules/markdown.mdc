@@ -1,8 +1,8 @@
 ---
 description: Markdown コンテンツの品質チェック
 globs: articles/**/*.md, books/**/*.md
-alwaysApply: false
 ---
+
 # Markdown コンテンツチェック
 
 このルールは、articles と books ディレクトリ内のすべての Markdown ファイルに適用されます。
