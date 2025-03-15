@@ -1,0 +1,59 @@
+version: '3'
+
+tasks:
+  default:
+    desc: show help
+    cmds:
+      - task --list
+
+  list:
+    desc: List all articles
+    cmds:
+      - ls -la articles/*.md
+
+
+  new:
+    desc: Create a new article
+    cmds:
+      - npx zenn new:article
+
+  preview:
+    desc: Start preview server
+    cmds:
+      - npx zenn preview
+
+  publish:
+    desc: Publish article
+    cmds:
+      - npx zenn publish
+
+  lint:
+    desc: Lint markdown files
+    cmds:
+      - npx textlint articles/*.md
+
+  init:
+    desc: Initialize zenn directory
+    cmds:
+      - npx zenn init
+
+  new-with-images:
+    desc: Create a new article with images directory
+    requires:
+      vars: [slug]
+    cmds:
+      - task: new
+        vars: { slug: "{{.slug}}" }
+      - task: mk-img-dir
+        vars: { slug: "{{.slug}}" }
+      - echo "Created article with slug '{{.slug}}' and images directory at 'images/{{.slug}}'"
+
+  mk-img-dir:
+    desc: Create images directory for an article
+    requires:
+      vars: [slug]
+    cmds:
+      - mkdir -p images/{{.slug}}
+      - echo "Created images directory at 'images/{{.slug}}'"
+
+
