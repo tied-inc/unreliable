@@ -89,11 +89,11 @@ https://times-new.com/
 5️⃣ **完成した 3️⃣, 4️⃣ の動画を当日発表**
 
 🎥 実際に作成した AI プレゼン動画はこちら！
-📌 **[「Times.new」の AI プレゼン動画](https://app.HeyGen.com/videos/9102ea5b24ff4ab5b889e6f5ae5c9c1c)**
-📌 **[「プレゼンのプレゼン」動画](https://app.HeyGen.com/videos/110ebe4246f8458a94c569a6cedcacd6)**
+📌 **[「Times.new」の AI プレゼン動画](https://app.heygen.com/videos/9102ea5b24ff4ab5b889e6f5ae5c9c1c)**
+📌 **[「プレゼンのプレゼン」動画](https://app.heygen.com/videos/110ebe4246f8458a94c569a6cedcacd6)**
 
-https://app.HeyGen.com/videos/9102ea5b24ff4ab5b889e6f5ae5c9c1c
-https://app.HeyGen.com/videos/110ebe4246f8458a94c569a6cedcacd6
+https://app.heygen.com/videos/9102ea5b24ff4ab5b889e6f5ae5c9c1c
+https://app.heygen.com/videos/110ebe4246f8458a94c569a6cedcacd6
 
 ### 実際に作成してみて工夫・苦労した点
 
@@ -165,9 +165,9 @@ AI プレゼンは **「エンジニアが技術を発信するハードルを�
 - **プロダクト紹介やオンボーディング動画の自動生成にも活用できる**
 
 🎥 **試しに作成した「プレゼンのプレゼン」英語版動画はこちら！**
-📌 **[「プレゼンのプレゼン」英語版動画](https://app.HeyGen.com/videos/9cef8dcbd38646fa8cc72076fc673c54)**
+📌 **[「プレゼンのプレゼン」英語版動画](https://app.heygen.com/videos/9cef8dcbd38646fa8cc72076fc673c54)**
 
-https://app.HeyGen.com/videos/9cef8dcbd38646fa8cc72076fc673c54
+https://app.heygen.com/videos/9cef8dcbd38646fa8cc72076fc673c54
 
 ### **❌ AI プレゼンのデメリット**
 
