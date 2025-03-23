@@ -1,0 +1,47 @@
+---
+description: コンテンツポリシーガイドラインチェック
+globs: articles/**/*.md, books/**/*.md
+---
+
+# コンテンツポリシーチェック
+
+このルールは、articles と books ディレクトリ内のすべての Markdown ファイルのコンテンツポリシー準拠を確認します。
+
+## ルール一覧
+
+### 不適切な言葉遣いチェック
+
+潜在的に不適切または攻撃的な言葉遣いがないか確認します。
+
+```
+name: no-offensive-language
+description: Check for potentially offensive or inappropriate language
+pattern: (?i)(差別|侮辱|攻撃的|不適切|offensive|discriminatory|derogatory)
+message: "Content may contain potentially offensive language. Please review"
+severity: warning
+```
+
+### 引用形式チェック
+
+引用が適切に形式化されていることを確認します。
+
+```
+name: citation-format
+description: Ensure citations are properly formatted
+pattern: (?i)(引用元|出典|source|reference)[:：][ 　]*[^\n]+
+match_type: exists
+message: "Citations should be properly formatted and included for factual claims"
+severity: info
+```
+
+### 著作権違反チェック
+
+潜在的な著作権の懸念事項をチェックします。
+
+```
+name: no-copyright-violation
+description: Check for potential copyright concerns
+pattern: (?i)(著作権|copyright|©|all rights reserved)
+message: "Content may have copyright concerns. Please ensure proper attribution"
+severity: warning
+```

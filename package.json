@@ -1,10 +1,13 @@
 {
   "name": "unreliable",
   "version": "1.0.0",
-  "description": "Unreliable – Because Most AI News Isn’t.",
+  "description": "Unreliable – Because Most AI News Isn't.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "zenn preview",
+    "new:article": "zenn new:article",
+    "new:book": "zenn new:book"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,23 @@
+---
+description: ファイル名の命名規則チェック
+globs: articles/**/*.md, books/**/*.md
+---
+
+# ファイル名フォーマットチェック
+
+このルールは、articles と books ディレクトリ内のすべての Markdown ファイルのファイル名に適用されます。
+
+## ルール一覧
+
+### ファイル名フォーマットチェック
+
+ファイル名は YYYY-MM-DD-article-title.md 形式に従う必要があります。
+
+```
+name: filename-format
+description: Ensure filenames follow the YYYY-MM-DD-article-title.md format
+pattern: ^\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.md$
+match_type: filename
+message: "Filename should follow the format: YYYY-MM-DD-article-title.md"
+severity: warning
+```
