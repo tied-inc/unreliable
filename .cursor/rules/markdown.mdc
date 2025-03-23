@@ -1,0 +1,79 @@
+---
+description: Markdown コンテンツの品質チェック
+globs: articles/**/*.md, books/**/*.md
+---
+
+# Markdown コンテンツチェック
+
+このルールは、articles と books ディレクトリ内のすべての Markdown ファイルに適用されます。
+
+## ルール一覧
+
+### フロントマターチェック
+
+すべての Markdown ファイルは適切なフロントマターを含む必要があります。
+
+```
+name: frontmatter-check
+description: Ensure all markdown files have proper frontmatter
+pattern: |-
+  ^---\s*\n
+  title:\s*".*"\s*\n
+  author:\s*".*"\s*\n
+  date:\s*\d{4}-\d{2}-\d{2}\s*\n
+  tags:\s*\[.*\]\s*\n
+  ---
+message: "Markdown file must include proper frontmatter with title, author, date, and tags"
+severity: error
+```
+
+### 最小コンテンツ長チェック
+
+コンテンツは最小限の長さを持つ必要があります。
+
+```
+name: min-content-length
+description: Ensure content has minimum length
+pattern: (?s)^---.*?---\s*(.*?)$
+match: $1
+condition: length($1) > 500
+message: "Content is too short. Minimum content length after frontmatter should be 500 characters"
+severity: warning
+```
+
+### プレースホルダーコンテンツチェック
+
+プレースホルダーコンテンツが残っていないことを確認します。
+
+```
+name: no-placeholder-content
+description: Ensure no placeholder content remains
+pattern: (?i)(lorem ipsum|TODO|FIXME|XXX)
+message: "Placeholder content detected. Please replace with actual content"
+severity: error
+```
+
+### 見出し構造チェック
+
+適切な見出し構造を確保します。
+
+```
+name: proper-headings
+description: Ensure proper heading structure
+pattern: (?s)^---.*?---.*?#\s+[^\n]+
+match_type: exists
+message: "Article should have at least one heading after frontmatter"
+severity: warning
+```
+
+### HTML タグチェック
+
+Markdown コンテンツでの HTML タグの使用を避けます。
+
+```
+name: no-html-tags
+description: Discourage use of HTML tags in markdown
+pattern: <(?!code|pre|kbd)[a-z]+[^>]*>
+message: "Avoid using HTML tags in markdown content. Use markdown syntax instead"
+severity: warning
+```
