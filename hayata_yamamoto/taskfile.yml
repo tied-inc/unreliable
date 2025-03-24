@@ -6,12 +6,6 @@ tasks:
     cmds:
       - task --list
 
-  list:
-    desc: List all articles
-    cmds:
-      - ls -la articles/*.md
-
-
   new:
     desc: Create a new article
     cmds:
