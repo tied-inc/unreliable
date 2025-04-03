@@ -1,11 +1,11 @@
 ---
 title: "話すのが苦手でも大丈夫？ AIアバターで発表してみた 〜 個人開発プロダクトのプレゼンに挑戦 〜"
 author: "中本 康太郎"
-date: 2025-03-13
+date: 2025-04-03
 emoji: "🎭"
 type: "tech"
 topics: ["生成AI", "プレゼンテーション", "個人開発", "技術発表", "HeyGen"]
-published: false
+published: true
 ---
 
 ## **1. この記事はこんな人向けです！**
