@@ -7,7 +7,7 @@ published: false
 ---
 
 :::message
-この記事では、ソフトウエアに関する技術書の翻訳と、それにどうAIを活用するかについて、自分の経験をもとに解説します。
+この記事は、ソフトウエアに関する技術書の翻訳と、それにどうAIを活用するかについて、自分の経験をもとに解説したものです。
 :::
 
 ## はじめに
@@ -86,30 +86,21 @@ DeepLは2017年に登場しており、登場した際には、その高い精�
 
 以下にストレンジコードの第1章から、原文、DeepLの結果、GPT 4.0の結果、そして最終的な訳文の例を示します。
 
-
 ### 原文
 
-```
-Listing 1-5 shows us how to define and use classes. We define two classes, Person and Pal, a subclass of Person. Person uses the familiar class keyword and then defines first and last names as type text, a string object, along with age, an integer. Person defines one method, Print, to print the person’s full name and age.
-```
+> Listing 1-5 shows us how to define and use classes. We define two classes, Person and Pal, a subclass of Person. Person uses the familiar class keyword and then defines first and last names as type text, a string object, along with age, an integer. Person defines one method, Print, to print the person’s full name and age.
 
 ### DeepLの結果
 
-```
-リスト 1-5 は、クラスの定義と使い方を示している。 ここでは2つのクラス、PersonとPersonのサブクラスであるPalを定義します。 Person はおなじみの class キーワードを使用し、姓と名を text 型の文字列オブジェクトとして定義し、age は整数値として定義しています。 Person は人のフルネームと年齢を表示するために Print というメソッドを1つ定義しています。
-```
+> リスト 1-5 は、クラスの定義と使い方を示している。 ここでは2つのクラス、PersonとPersonのサブクラスであるPalを定義します。 Person はおなじみの class キーワードを使用し、姓と名を text 型の文字列オブジェクトとして定義し、age は整数値として定義しています。 Person は人のフルネームと年齢を表示するために Print というメソッドを1つ定義しています。
 
 ### GPT 4.0の結果
 
-```
-リスト 1-5は、クラスの定義と使い方を示しています。ここでは、Personというクラスと、そのサブクラスであるPalというクラスを2つ定義しています。Personは、おなじみのclassキーワードを使用して、姓と名を文字列オブジェクトのtext型として定義し、年齢を整数として定義しています。PersonはPrintというメソッドを1つ定義し、その人のフルネームと年齢を表示します。
-```
+> リスト 1-5は、クラスの定義と使い方を示しています。ここでは、Personというクラスと、そのサブクラスであるPalというクラスを2つ定義しています。Personは、おなじみのclassキーワードを使用して、姓と名を文字列オブジェクトのtext型として定義し、年齢を整数として定義しています。PersonはPrintというメソッドを1つ定義し、その人のフルネームと年齢を表示します。
 
 ### これらの結果をもとにした最終的な訳文
 
-```
-リスト 1-5は、クラスの定義と使い方を示しています。ここでは、Personというクラスと、そのサブクラスであるPalという2つのクラスを定義しています。Personは、おなじみのclassキーワードを使用して、姓と名をtext型（文字列オブジェクト）として定義し、年齢を整数として定義しています。PersonにはPrintというメソッドが定義されており、これはその人のフルネームと年齢を表示する機能を持ちます。
-```
+> リスト 1-5は、クラスの定義と使い方を示しています。ここでは、Personというクラスと、そのサブクラスであるPalという2つのクラスを定義しています。Personは、おなじみのclassキーワードを使用して、姓と名をtext型（文字列オブジェクト）として定義し、年齢を整数として定義しています。PersonにはPrintというメソッドが定義されており、これはその人のフルネームと年齢を表示する機能を持ちます。
 
 DeepLの結果は、ですます調とである調が混ざってしまっています。GPT 4.0の結果は、DeepLの結果よりも、読みやすく自然な文章になっているのがわかります。個人的に内容を理解するためには十分なのですが、読んだ時のリズムは、個人的には今ひとつな場合もあるなと感じました。そのまま最終的な訳文として使える場合もありましたが、多くの場合は、より読みやすい（と私自身が考える）文章に書き換えていきました。例えば「クラスを2つ定義しています」を「2つのクラスを定義しています」に変えたあたりなどが、リズムを意識した部分です。
 
@@ -119,29 +110,49 @@ DeepLの結果は、ですます調とである調が混ざってしまってい
 
 ## 生成AIと翻訳その2 ( Claude 3.5 )
 
+「[システム設計面接の傾向と対策](https://www.amazon.co.jp/dp/4798072796/)」の翻訳は、2024年の6月から10月にかけて行いました。翻訳を開始する直前、Claude 3.5 がリリースされました。Claude 3.5は200Kトークンというめちゃくちゃでっかいコンテキストウィンドウを備えていたので、一章分のデータを丸ごと渡して、翻訳をすることができるようになりました。
 
+翻訳にあたっては、今回はPDFやTeXではなく、HTMLファイルをもとにしています。「システム設計面接の傾向と対策」の原著は[Manning社](https://www.manning.com/books/acing-the-system-design-interview)から出版されており、Manning社のサイトでは、オンライン版の購入をすると、書籍をブラウザ上で読むことができます。このオンライン版はHTMLで作られているので、それをデベロッパーツールでコピーして、HTMLデータとして章ごとに取得しました。
 
+HTMLファイルは、見出しなどの情報がタグによって構造化されているので、このファイルをそのままClaude 3.5に渡して、章ごとに翻訳を行いました。APIではなく、Web版のClaudeを利用しました。出力結果は、一度には出ないのですが、「続ける」などのメッセージで先を促し、一章ごとの翻訳ファイルをMarkdownファイルとして作成することができました。
 
+ではここで、「システム設計面接の傾向と対策」の2.2節の冒頭の原文と、Claude 3.5の結果、最終的な訳文を示します。
 
-## 翻訳した文章の管理方法
+### 原文
 
-現在（「プログラマー脳」以降）の翻訳データは、Gitで管理しています。GitHubにリポジトリを作成し、Markdownで翻訳した文書を
+> You should have already clarified the functional requirements before scribbling these endpoints; you are past the appropriate section of the interview to clarify functional requirements and should not do so here unless you missed anything.
 
+### Claude 3.5の結果
 
+> エンドポイントをメモする前に、既に機能要件を明確にしているはずです。面接の適切なセクションを過ぎてから機能要件を明確にするのは適切ではありません。重要なことを見逃した場合を除いて、ここで機能要件を明確にすべきではありません。
 
+### これらの結果をもとにした最終的な訳文
 
-## 技術書翻訳と必要な文化の知識と教養
+> エンドポイントの草案を作る前に、あなたは機能要件を明確にしているはずです。面接においては後になってから機能要件の明確化を行うのは適切ではありません。重要なことを見逃した場合を除いて、今の段階になってから機能要件の詳細を議論すべきではありません。
 
+Claude 3.5の結果は、すでに、かなり自然な文章になっているのがわかります。しかも、1章分をまるごとを渡して翻訳させることができるので、かなり文脈も理解した上での翻訳ができていることがわかります。単に内容を理解しようとするだけなら、十分だとも言えるでしょう。
 
-どの書籍だったか忘れましたが、JavaScriptについて取り扱った書籍のコラムに「One script to rule them all」というようなタイトルがつけられていることがありました。「一つのスクリプトで全てをコントロールする」という意味なのですが、これは指輪物語に出てくる冥王サウロンが作った一つの指輪を火に投げ入れると浮かんでくる詩の冒頭である「One Ring to rule them all」のパロディなので、翻訳の大先輩であるところの瀬田貞二先生の訳に倣い「一つのスクリプトは全てを統べ（る）」と訳すべきです。
+ただし、文章がやや堅苦しく、「面接の適切なセクションを過ぎてから...」など、直訳すぎる気もします。そこで、主語を追加したり、リズムを考えて読みやすくするよう、文章を修正しています。
 
-また、「The Return of the Frame Pointers」というブログ記事のタイトルが、書籍の中で紹介されていたことがあります。これは、かつてLinuxのGCCコンパイラに存在していたフレームポインタが、削除され、再び採用されるまでを説明した記事ですが、このタイトルも、指輪物語の第三部である「王の帰還（The Return of the Kings）」から来ています。したがって、これも「フレームポインタの帰還」と訳されるべきです。余談ですが、Claude3.5はこれを正しく「フレームポインタの帰還」と訳したので、すごいなと思いました。DeepLは「フレームポインタの復活」と訳しました。内容的にはDeepLが正しいのですが、この場合Claude3.5に軍配が上るといえるでしょう。
+また、専門用語の翻訳など、用語の統一も行なっています。例えば以下の例を見てください。
 
-なおこれは、スターウォーズのエピソード6の「ジェダイの帰還（Return of the Jedi）」かなと思ったのですが、Returnの前の定冠詞 the の存在と、Frame Pointers が複数になっている（元ネタとして、ジェダイの帰還はルーク・スカイウォーカー一人なので単数、
+### 原文
 
+> The previous discussion on accuracy leads us to the related discussion on **consistency**. We do not need **strong consistency** for any of our use cases. When a user service updates a rate limit, this new rate limit need not immediately apply to new requests; a few seconds of inconsistency may be acceptable. **Eventual consistency** is also acceptable for viewing logged events such as which users were rate-limited or performing analytics on these logs. **Eventual** rather than **strong consistency** will allow a simpler and cheaper design.
 
-このことから分かることは、「指輪物語」の知識は、技術書の翻訳には重要であるということです。もちろん、「一つのスクリプトで全てをコントロールする」や「フレームポインタの復活」と訳しても意味は通じるのですが、ちゃんと元ネタを踏まえて訳す方が粋かなと思います。
+### Claude 3.5の結果
 
-指輪物語以外にも、スターウォーズとか、スタートレックなんかも、ネタにされやすい気がしています。ぜひ押さえておくと良いでしょう。
+> 精度についての前述の議論は、関連する**一貫性**の議論につながります。どのユースケースにも**強い一貫性**は必要ありません。ユーザーサービスがレートリミットを更新する場合、この新しいレートリミットが新しいリクエストに即座に適用される必要はありません。数秒間の不一致は許容される可能性があります。どのユーザーがレートリミットされたかなどのログイベントの表示や、これらのログの分析についても、**最終的な一貫性**で十分です。**強い一貫性**ではなく**最終的な一貫性**を使用することで、より単純で安価な設計が可能になります。
 
-それ以外にも、例えば「JavaScript: The Good Parts」は各章の冒頭にシェークスピアの引用がつけられています。
+### これらの結果をもとにした最終的な訳文
+
+> 精度についての前述の議論は、関連する**整合性***の議論につながります。どのユースケースにも**強い整合性**は必要ありません。ユーザーサービスがレートリミットを更新する場合、この新しいレートリミットが新しいリクエストに即座に適用される必要はありません。数秒間の不一致は許容される可能性があります。どのユーザーがレートリミットされたかなどのログイベントの表示や、これらのログの分析についても、**結果整合性**で十分です。**強い整合性**ではなく**結果整合性**を使用することで、より単純で安価な設計が可能になります。
+
+ここで例に出しているのは「Eventual consistency」という用語です。「consistency」は「一貫性」とも「整合性」とも訳される用語で、Claude 3.5はこれを一貫性と訳していますが、翻訳では全て整合性という言葉を使うことにしました。「Eventual consistency」は最終的な一貫性とClaude 3.5は訳していますが、「結果整合性」と変更しています。ちなみに、Wikipediaでは「consistency」は「[一貫性](https://ja.wikipedia.org/wiki/%E4%B8%80%E8%B2%AB%E6%80%A7_(%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9))」と訳されていますが、「eventual consistency」は「[結果整合性](https://ja.wikipedia.org/wiki/%E7%B5%90%E6%9E%9C%E6%95%B4%E5%90%88%E6%80%A7)」と訳されています。
+
+また、これ以外にも「Aでもなく、Bでもない」とすべき訳文を、Claude 3.5は「Aでもあり、Bでもある」というような全く逆の意味に訳してしまっている箇所がありました。
+
+## 生成AIと翻訳その3 ( Claude 3.7 と GPT o1 Pro )
+
+さて、ここから先は、まさに今行なっている新しい書籍の翻訳の話なのですが、現在は、Claude 3.7 と GPT o1 Pro を使って翻訳を行なっています。
+
